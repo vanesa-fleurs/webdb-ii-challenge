@@ -1,19 +1,7 @@
-const express = require('express');
+const server = require('./server.js');
 
-const server = express();
+const PORT = process.env.PORT || 5050;
 
-server.use(express.json());
-
-
-const accountsR = require('./data/accountsRouter.js');
-server.use('/api/accounts', accountsR);
-
-
-server.get('/', (req, res) => {
-    res.send(`
-      <h2>Lambda WEP DB Challenge :)</h>
-      <p>Let's get started... </p>
-    `);
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
 });
-
-module.exports = server;
