@@ -8,8 +8,8 @@ server.use(helmet());
 server.use(express.json());
 
 
-const accountsR = require('./data/accountsRouter.js');
-server.use('/api/accounts', accountsR);
+const vehicleRouter = require('./vehicles/vehicles-router.js');
+server.use('/api/vehicles', vehicleRouter)
 
 
 server.get('/', (req, res) => {
